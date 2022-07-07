@@ -16,9 +16,30 @@ import { XCircle as XCircleIcon } from '../icons/x-circle';
 import { Logo } from './logo';
 import { NavItem } from './nav-item';
 
+// my imports
+import InsightsIcon from '@mui/icons-material/Insights';
+import CampaignIcon from '@mui/icons-material/Campaign';
+import QueryStatsIcon from '@mui/icons-material/QueryStats';
+import MovingIcon from '@mui/icons-material/Moving';
+import ElectricBoltIcon from '@mui/icons-material/ElectricBolt';
+import ShowChartIcon from '@mui/icons-material/ShowChart';
+import BarChartIcon from '@mui/icons-material/BarChart';
+
 const items = [
+
   {
     href: '/',
+    icon: (<CampaignIcon fontSize="small" />),
+    title: 'Estrategias'
+  },
+  
+  {
+    href: '#',
+    icon: (<BarChartIcon fontSize="small" />),
+    title: 'Campañas'
+  },
+  {
+    href: '#',
     icon: (<ChartBarIcon fontSize="small" />),
     title: 'Dashboard'
   },
@@ -91,18 +112,13 @@ export const DashboardSidebar = (props) => {
         }}
       >
         <div>
-          <Box sx={{ p: 3 }}>
+          <Box sx={{ p: 0 }}>
             <NextLink
               href="/"
               passHref
             >
               <a>
-                <Logo
-                  sx={{
-                    height: 42,
-                    width: 42
-                  }}
-                />
+                <Logo />
               </a>
             </NextLink>
           </Box>
@@ -162,56 +178,7 @@ export const DashboardSidebar = (props) => {
           ))}
         </Box>
         <Divider sx={{ borderColor: '#2D3748' }} />
-        <Box
-          sx={{
-            px: 2,
-            py: 3
-          }}
-        >
-          <Typography
-            color="neutral.100"
-            variant="subtitle2"
-          >
-            Need more features?
-          </Typography>
-          <Typography
-            color="neutral.500"
-            variant="body2"
-          >
-            Check out our Pro solution template.
-          </Typography>
-          <Box
-            sx={{
-              display: 'flex',
-              mt: 2,
-              mx: 'auto',
-              width: '160px',
-              '& img': {
-                width: '100%'
-              }
-            }}
-          >
-            <img
-              alt="Go to pro"
-              src="/static/images/sidebar_pro.png"
-            />
-          </Box>
-          <NextLink
-            href="https://material-kit-pro-react.devias.io/"
-            passHref
-          >
-            <Button
-              color="secondary"
-              component="a"
-              endIcon={(<OpenInNewIcon />)}
-              fullWidth
-              sx={{ mt: 2 }}
-              variant="contained"
-            >
-              Pro Live Preview
-            </Button>
-          </NextLink>
-        </Box>
+        
       </Box>
     </>
   );
