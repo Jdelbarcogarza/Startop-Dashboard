@@ -23,7 +23,7 @@ export const DashboardNavbar = (props) => {
             lg: 260
           },
           width: {
-            lg: 'calc(100% - 280px)'
+            lg: 'calc(100% - 260px)'
           }
         }}
         {...other}>
