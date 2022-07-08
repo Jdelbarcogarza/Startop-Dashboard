@@ -2,7 +2,7 @@ import { useEffect } from 'react';
 import NextLink from 'next/link';
 import { useRouter } from 'next/router';
 import PropTypes from 'prop-types';
-import { Box, Button, Divider, Drawer, Typography, useMediaQuery } from '@mui/material';
+import { Box, Button, Divider, Drawer, Typography, useMediaQuery, Paper } from '@mui/material';
 import OpenInNewIcon from '@mui/icons-material/OpenInNew';
 import { ChartBar as ChartBarIcon } from '../icons/chart-bar';
 import { Cog as CogIcon } from '../icons/cog';
@@ -17,12 +17,8 @@ import { Logo } from './logo';
 import { NavItem } from './nav-item';
 
 // my imports
-import InsightsIcon from '@mui/icons-material/Insights';
+
 import CampaignIcon from '@mui/icons-material/Campaign';
-import QueryStatsIcon from '@mui/icons-material/QueryStats';
-import MovingIcon from '@mui/icons-material/Moving';
-import ElectricBoltIcon from '@mui/icons-material/ElectricBolt';
-import ShowChartIcon from '@mui/icons-material/ShowChart';
 import BarChartIcon from '@mui/icons-material/BarChart';
 
 const items = [
@@ -32,7 +28,7 @@ const items = [
     icon: (<CampaignIcon fontSize="small" />),
     title: 'Estrategias'
   },
-  
+
   {
     href: '#',
     icon: (<BarChartIcon fontSize="small" />),
@@ -108,11 +104,13 @@ export const DashboardSidebar = (props) => {
         sx={{
           display: 'flex',
           flexDirection: 'column',
-          height: '100%'
+          height: '100%',
+          p:2
         }}
       >
-        <div>
-          <Box sx={{ p: 0 }}>
+        
+          
+          <Box>
             <NextLink
               href="/"
               passHref
@@ -122,52 +120,9 @@ export const DashboardSidebar = (props) => {
               </a>
             </NextLink>
           </Box>
-          <Box sx={{ px: 2 }}>
-            <Box
-              sx={{
-                alignItems: 'center',
-                backgroundColor: 'rgba(255, 255, 255, 0.04)',
-                cursor: 'pointer',
-                display: 'flex',
-                justifyContent: 'space-between',
-                px: 3,
-                py: '11px',
-                borderRadius: 1
-              }}
-            >
-              <div>
-                <Typography
-                  color="inherit"
-                  variant="subtitle1"
-                >
-                  Acme Inc
-                </Typography>
-                <Typography
-                  color="neutral.400"
-                  variant="body2"
-                >
-                  Your tier
-                  {' '}
-                  : Premium
-                </Typography>
-              </div>
-              <SelectorIcon
-                sx={{
-                  color: 'neutral.500',
-                  width: 14,
-                  height: 14
-                }}
-              />
-            </Box>
-          </Box>
-        </div>
-        <Divider
-          sx={{
-            borderColor: '#2D3748',
-            my: 3
-          }}
-        />
-        <Box sx={{ flexGrow: 1 }}>
+          
+        
+        <Box sx={{ flexGrow: 1, pt:2 }}>
           {items.map((item) => (
             <NavItem
               key={item.title}
@@ -177,8 +132,45 @@ export const DashboardSidebar = (props) => {
             />
           ))}
         </Box>
-        <Divider sx={{ borderColor: '#2D3748' }} />
-        
+
+
+        <Box>
+
+          <Divider sx={{ borderColor: '#2D3748', mb: 2 }} />
+
+          <Box sx={{
+            display: 'flex',
+            flexDirection: 'row',
+            px:1.5,
+            justifyContent: 'space-around',
+
+          }}>
+
+            <Paper
+              variant='rounded'
+              sx={{
+                width: '42px',
+                height: '42px',
+              }}></Paper>
+
+            <Box>
+              <Typography
+                variant="body2"
+                color="white"
+              >
+                sandraMarx@gmail.com
+              </Typography>
+              <Typography
+                variant="body2"
+                color="white"
+              >
+                Sandra Marx
+              </Typography>
+            </Box>
+
+          </Box>
+        </Box>
+
       </Box>
     </>
   );
