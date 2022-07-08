@@ -184,7 +184,9 @@ export const DashboardSidebar = (props) => {
           sx: {
             backgroundColor: 'neutral.900',
             color: '#FFFFFF',
-            width: 280
+            /* valor que modifica el ancho del sidebar. Si se modifica, se debe ajustar el padding del layout tambien
+            en el archivo de dashboard-navbar.js*/
+            width: 260 
           }
         }}
         variant="permanent"
@@ -203,7 +205,7 @@ export const DashboardSidebar = (props) => {
         sx: {
           backgroundColor: 'neutral.900',
           color: '#FFFFFF',
-          width: 280
+          width: 260
         }
       }}
       sx={{ zIndex: (theme) => theme.zIndex.appBar + 100 }}
