@@ -121,7 +121,7 @@ export const DashboardSidebar = (props) => {
             </NextLink>
           </Box>
           
-        
+        {/** Apartado de lista de elementos de navegación */}
         <Box sx={{ flexGrow: 1, pt:2 }}>
           {items.map((item) => (
             <NavItem
@@ -133,15 +133,13 @@ export const DashboardSidebar = (props) => {
           ))}
         </Box>
 
-
+        {/** Apartado de usuario */}
         <Box>
-
           <Divider sx={{ borderColor: '#2D3748', mb: 2 }} />
 
           <Box sx={{
             display: 'flex',
             flexDirection: 'row',
-            px:1.5,
             justifyContent: 'space-around',
 
           }}>
