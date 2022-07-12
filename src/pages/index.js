@@ -10,6 +10,9 @@ import { TotalProfit } from '../components/dashboard/total-profit';
 import { TrafficByDevice } from '../components/dashboard/traffic-by-device';
 import { DashboardLayout } from '../components/dashboard-layout';
 
+// my imports
+import { MainKPI } from 'src/components/dashboard/main-KPI';
+
 const Dashboard = () => (
   <>
     <Head>
@@ -38,6 +41,8 @@ const Dashboard = () => (
           >
             <Budget />
           </Grid>
+          {/**AQUI IBA TOTAL CUSTOMERS 
+          
           <Grid
             item
             xl={3}
@@ -47,6 +52,8 @@ const Dashboard = () => (
           >
             <TotalCustomers />
           </Grid>
+          
+          */}
           <Grid
             item
             xl={3}
@@ -65,6 +72,17 @@ const Dashboard = () => (
           >
             <TotalProfit sx={{ height: '100%' }} />
           </Grid>
+
+          <Grid
+            item
+            xl={3}
+            lg={3}
+            sm={6}
+            xs={12}
+          >
+            <MainKPI />
+          </Grid>
+
           <Grid
             item
             lg={8}
