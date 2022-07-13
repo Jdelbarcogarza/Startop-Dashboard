@@ -21,6 +21,8 @@ import { NavItem } from './nav-item';
 import CampaignIcon from '@mui/icons-material/Campaign';
 import BarChartIcon from '@mui/icons-material/BarChart';
 
+import { accountMenu } from './popup-account-menu'
+
 const items = [
 
   {
@@ -105,24 +107,24 @@ export const DashboardSidebar = (props) => {
           display: 'flex',
           flexDirection: 'column',
           height: '100%',
-          p:2
+          p: 2
         }}
       >
-        
-          
-          <Box>
-            <NextLink
-              href="/"
-              passHref
-            >
-              <a>
-                <Logo />
-              </a>
-            </NextLink>
-          </Box>
-          
+
+
+        <Box>
+          <NextLink
+            href="/"
+            passHref
+          >
+            <a>
+              <Logo />
+            </a>
+          </NextLink>
+        </Box>
+
         {/** Apartado de lista de elementos de navegación */}
-        <Box sx={{ flexGrow: 1, pt:2 }}>
+        <Box sx={{ flexGrow: 1, pt: 2 }}>
           {items.map((item) => (
             <NavItem
               key={item.title}
@@ -137,38 +139,44 @@ export const DashboardSidebar = (props) => {
         <Box>
           <Divider sx={{ borderColor: '#2D3748', mb: 2 }} />
 
-          <Box sx={{
-            display: 'flex',
-            flexDirection: 'row',
-            justifyContent: 'space-around',
+          {/** parte "clickeable" del apartado de usuaeio */}
+            <Box sx={{
+              display: 'flex',
+              flexDirection: 'row',
+              justifyContent: 'space-around',
+              '&:hover': {
+                cursor: 'pointer'
+              }
 
-          }}>
+            }}
+            onClick={'rin'}
+            >
 
-            <Paper
-              variant='rounded'
-              sx={{
-                width: '42px',
-                height: '42px',
-              }}></Paper>
+              <Paper
+                variant='rounded'
+                sx={{
+                  width: '42px',
+                  height: '42px',
+                }}></Paper>
 
-            <Box>
-              <Typography
-                variant="body2"
-                color="white"
-              >
-                sandraMarx@gmail.com
-              </Typography>
-              <Typography
-                variant="body2"
-                color="white"
-              >
-                Sandra Marx
-              </Typography>
+              <Box>
+                <Typography
+                  variant="body2"
+                  color="white"
+                >
+                  sandraMarx@gmail.com
+                </Typography>
+                <Typography
+                  variant="body2"
+                  color="white"
+                >
+                  Sandra Marx
+                </Typography>
+              </Box>
+
             </Box>
-
-          </Box>
+          
         </Box>
-
       </Box>
     </>
   );
@@ -184,7 +192,7 @@ export const DashboardSidebar = (props) => {
             color: '#FFFFFF',
             /* valor que modifica el ancho del sidebar. Si se modifica, se debe ajustar el padding del layout tambien
             en el archivo de dashboard-navbar.js*/
-            width: 260 
+            width: 260
           }
         }}
         variant="permanent"
