@@ -2,12 +2,10 @@ import { useEffect } from 'react';
 import NextLink from 'next/link';
 import { useRouter } from 'next/router';
 import PropTypes from 'prop-types';
-import { Box, Button, Divider, Drawer, Typography, useMediaQuery, Paper } from '@mui/material';
-import OpenInNewIcon from '@mui/icons-material/OpenInNew';
+import { Box, Divider, Drawer, Typography, useMediaQuery, Paper } from '@mui/material';
 import { ChartBar as ChartBarIcon } from '../icons/chart-bar';
 import { Cog as CogIcon } from '../icons/cog';
 import { Lock as LockIcon } from '../icons/lock';
-import { Selector as SelectorIcon } from '../icons/selector';
 import { ShoppingBag as ShoppingBagIcon } from '../icons/shopping-bag';
 import { User as UserIcon } from '../icons/user';
 import { UserAdd as UserAddIcon } from '../icons/user-add';
@@ -16,13 +14,12 @@ import { XCircle as XCircleIcon } from '../icons/x-circle';
 import { Logo } from './logo';
 import { NavItem } from './nav-item';
 
-// my imports
-
+// icons
 import CampaignIcon from '@mui/icons-material/Campaign';
 import BarChartIcon from '@mui/icons-material/BarChart';
+import { AccountMenu } from './popup-account-menu';
 
-import { accountMenu } from './popup-account-menu'
-
+// apartados de navegación del sidebar
 const items = [
 
   {
@@ -78,13 +75,16 @@ const items = [
   }
 ];
 
+
+
 export const DashboardSidebar = (props) => {
   const { open, onClose } = props;
   const router = useRouter();
   const lgUp = useMediaQuery((theme) => theme.breakpoints.up('lg'), {
-    defaultMatches: true,
-    noSsr: false
-  });
+  defaultMatch: true,
+  noSsr: false
+}
+  );
 
   useEffect(
     () => {
@@ -135,47 +135,50 @@ export const DashboardSidebar = (props) => {
           ))}
         </Box>
 
+        {/** En esta parte es donde debe renderizarse el accountDropDownMenu */}
+        <AccountMenu />
+
+
         {/** Apartado de usuario */}
         <Box>
+
           <Divider sx={{ borderColor: '#2D3748', mb: 2 }} />
 
-          {/** parte "clickeable" del apartado de usuaeio */}
-            <Box sx={{
-              display: 'flex',
-              flexDirection: 'row',
-              justifyContent: 'space-around',
-              '&:hover': {
-                cursor: 'pointer'
-              }
+          {/** parte "clickeable" del apartado de usuario */}
+          <Box sx={{
+            display: 'flex',
+            flexDirection: 'row',
+            justifyContent: 'space-around',
+            '&:hover': {
+              cursor: 'pointer'
+            }
+          }}
+          >
 
-            }}
-            onClick={'rin'}
-            >
+            <Paper
+              variant='rounded'
+              sx={{
+                width: '42px',
+                height: '42px',
+              }}></Paper>
 
-              <Paper
-                variant='rounded'
-                sx={{
-                  width: '42px',
-                  height: '42px',
-                }}></Paper>
-
-              <Box>
-                <Typography
-                  variant="body2"
-                  color="white"
-                >
-                  sandraMarx@gmail.com
-                </Typography>
-                <Typography
-                  variant="body2"
-                  color="white"
-                >
-                  Sandra Marx
-                </Typography>
-              </Box>
-
+            <Box>
+              <Typography
+                variant="body2"
+                color="white"
+              >
+                sandraMarx@gmail.com
+              </Typography>
+              <Typography
+                variant="body2"
+                color="white"
+              >
+                Sandra Marx
+              </Typography>
             </Box>
-          
+
+          </Box>
+
         </Box>
       </Box>
     </>
