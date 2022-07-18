@@ -110,8 +110,6 @@ export const DashboardSidebar = (props) => {
     }
   }, [isAccountMenuOpen])
 
-  console.log(isAccountMenuOpen)
-
   useEffect(
     () => {
       if (!router.isReady) {
