@@ -1,7 +1,6 @@
-import React from 'react'
 import {
   Paper, Box, Typography, Divider, Stack, Item
-} from '@mui/material'
+} from '@mui/material';
 
 
 // imports (account dropdown menu)
@@ -34,13 +33,13 @@ const optionsNoIcon = [
     title: 'Términos y condiciones'
   },
 
-]
+];
 
 
 const MenuDivider = () => (
   <Divider sx={{mx: 2, my:1, borderColor: 'primary.main'}} />
 
-)
+);
 
 export const AccountMenu = () => {
 
