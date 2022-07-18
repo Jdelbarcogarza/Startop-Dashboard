@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { useEffect, useState, useRef } from 'react';
 import NextLink from 'next/link';
 import { useRouter } from 'next/router';
 import PropTypes from 'prop-types';
@@ -81,10 +81,36 @@ export const DashboardSidebar = (props) => {
   const { open, onClose } = props;
   const router = useRouter();
   const lgUp = useMediaQuery((theme) => theme.breakpoints.up('lg'), {
-  defaultMatch: true,
-  noSsr: false
-}
+    defaultMatch: true,
+    noSsr: false
+  }
   );
+
+  /* lógica de account dropdown menu. Si se presiona fuera del componente cuando está abierto,
+      se cierra.
+  */
+  const ref = useRef();
+  const [isAccountMenuOpen, setIsAccountMenuOpen] = useState(false);
+
+
+  useEffect(() => {
+    const checkIfClickedOutside = e => {
+      // If the account menu is open and the clicked target is not within the menu,
+      // then close the menu
+      if (isAccountMenuOpen && ref.current && !ref.current.contains(e.target)) {
+        setIsAccountMenuOpen(false)
+      }
+    }
+
+    document.addEventListener("mousedown", checkIfClickedOutside)
+
+    return () => {
+      // Cleanup the event listener
+      document.removeEventListener("mousedown", checkIfClickedOutside)
+    }
+  }, [isAccountMenuOpen])
+
+  console.log(isAccountMenuOpen)
 
   useEffect(
     () => {
@@ -136,11 +162,14 @@ export const DashboardSidebar = (props) => {
         </Box>
 
         {/** En esta parte es donde debe renderizarse el accountDropDownMenu */}
-        <AccountMenu />
+        {isAccountMenuOpen && <div ref={ref}> <AccountMenu />
+          
+        </div>}
 
-
+        
         {/** Apartado de usuario */}
         <Box>
+
 
           <Divider sx={{ borderColor: '#2D3748', mb: 2 }} />
 
@@ -153,6 +182,7 @@ export const DashboardSidebar = (props) => {
               cursor: 'pointer'
             }
           }}
+            onClick={() => { isAccountMenuOpen == false ? setIsAccountMenuOpen(!isAccountMenuOpen) : null}}
           >
 
             <Paper
