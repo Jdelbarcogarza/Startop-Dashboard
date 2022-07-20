@@ -58,19 +58,7 @@ const Dashboard = () => (
              />
 
           </Grid>
-          {/**AQUI IBA TOTAL CUSTOMERS 
           
-          <Grid
-            item
-            xl={3}
-            lg={3}
-            sm={6}
-            xs={12}
-          >
-            <TotalCustomers />
-          </Grid>
-          
-          */}
           <Grid
             item
             xl={3}
