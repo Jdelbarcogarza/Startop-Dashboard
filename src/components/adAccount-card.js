@@ -22,7 +22,7 @@ export const AdAccountCard = ({ name, id }) => {
                     <Box sx={{display: 'flex'}}>
                         <Button sx={{mr: 4}} 
                         variant="outlined">Configuracion</Button>
-                        <Button variant="contained">Ver campañas</Button>
+                        <Button variant="contained">Ver reporte</Button>
                     </Box>
                 </CardContent>
             </Card>
