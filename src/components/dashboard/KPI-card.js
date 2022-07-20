@@ -18,7 +18,7 @@ export const KpiCard = ({ title, value, unit, icon }) => {
 
                 <Box sx={{ display: 'flex', flexDirection: 'column' }}>
                     <Typography variant="overline"
-                        color="textSecondary">
+                        color="text.secondary">
                         {title}
                     </Typography>
 
@@ -28,13 +28,13 @@ export const KpiCard = ({ title, value, unit, icon }) => {
                     </Typography>
 
                     <Typography variant="caption"
-                        color="textSecondary"
+                        color="text.secondary"
                         sx={{ mt: 2 }}>
                         {unit}
                     </Typography>
                 </Box>
 
-                <Avatar sx={{width: 48, height: 48, backgroundColor: 'primary.main',}}>
+                <Avatar sx={{width: 48, height: 48, backgroundColor: 'primary.main', color: 'text.primary'}}>
                     {icon}
                 </Avatar>
             </CardContent>
