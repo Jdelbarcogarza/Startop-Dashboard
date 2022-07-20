@@ -37,7 +37,7 @@ const optionsNoIcon = [
 
 
 const MenuDivider = () => (
-  <Divider sx={{mx: 2, my:1, borderColor: 'primary.main'}} />
+  <Divider sx={{mx: 2, my:1, borderColor: 'divider'}} />
 
 );
 
@@ -57,12 +57,12 @@ export const AccountMenu = () => {
                 paddingY: 1,
                 paddingX: 2,
                 '&:hover': {
-                  backgroundColor: 'secondary.main'
+                  backgroundColor: 'primary.main'
                 }
               }}>
               {item.icon}
               <Typography variant="body2"
-                color="initial"
+                color="text.primary"
                 sx={{ ml: 1 }}
               >
                 {item.title}
@@ -81,11 +81,11 @@ export const AccountMenu = () => {
                 paddingY: 1,
                 paddingX: 1,
                 '&:hover': {
-                  backgroundColor: 'secondary.main'
+                  backgroundColor: 'primary.main'
                 }
               }}>
               <Typography variant="body2"
-                color="initial"
+                color="text.primary"
                 sx={{ ml: 1 }}
               >
                 {item.title}
@@ -103,11 +103,11 @@ export const AccountMenu = () => {
                 paddingY: 1,
                 paddingX: 1,
                 '&:hover': {
-                  backgroundColor: 'secondary.main'
+                  backgroundColor: 'primary.main'
                 }
               }}>
               <Typography variant="body2"
-                color="initial"
+                color="text.primary"
                 sx={{ ml: 1 }}
               >
                 Salir
