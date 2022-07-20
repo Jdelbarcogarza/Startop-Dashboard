@@ -17,12 +17,7 @@ import { faker } from '@faker-js/faker'
  */
 const ListAdaccounts = () => (
   <>
-  <Typography variant="body1" 
-  color="initial"
-  sx={{mt:2}}>
-    Seleccionar una cuenta de anuncios de la lista para ver sus campañas activas
-  </Typography>
-
+  
     <Box sx={{ px: 2, pr: 4, mt: 6, display: 'flex', justifyContent: 'center' }}>
       <Stack gap={4}
         sx={{ width: '60%' }}>
