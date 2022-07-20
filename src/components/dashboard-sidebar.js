@@ -17,7 +17,7 @@ import { NavItem } from './nav-item';
 // icons
 import CampaignIcon from '@mui/icons-material/Campaign';
 import BarChartIcon from '@mui/icons-material/BarChart';
-import { AccountMenu } from './popup-account-menu';
+import { AccountMenu } from './sidebar-account-menu';
 
 // apartados de navegación del sidebar
 const items = [
