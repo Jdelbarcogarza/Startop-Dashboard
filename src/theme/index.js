@@ -157,7 +157,7 @@ export const theme = createTheme({
     },
     divider: '#E6E8F0',
     primary: {
-      main: '#5048E5',
+      main: '#F88D2B', // NARANJA STARTOP
       light: '#828DF8',
       dark: '#3832A0',
       contrastText: '#FFFFFF'
@@ -193,8 +193,8 @@ export const theme = createTheme({
       contrastText: '#FFFFFF'
     },
     text: {
-      primary: '#121828',
-      secondary: '#65748B',
+      primary: '#121828', // Texto normal (casi negro)
+      secondary: '#65748B', // Texto qye va en segundo plano
       disabled: 'rgba(55, 65, 81, 0.48)'
     }
   },
