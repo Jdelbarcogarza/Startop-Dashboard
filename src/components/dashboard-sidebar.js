@@ -29,7 +29,7 @@ const items = [
   },
 
   {
-    href: '#',
+    href: '/list-ad-accounts',
     icon: (<BarChartIcon fontSize="small" />),
     title: 'Campañas'
   },
