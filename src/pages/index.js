@@ -11,7 +11,17 @@ import { TrafficByDevice } from '../components/dashboard/traffic-by-device';
 import { DashboardLayout } from '../components/dashboard-layout';
 
 // my imports
-import { MainKPI } from 'src/components/dashboard/main-KPI';
+import { KpiCard } from 'src/components/dashboard/KPI-card';
+
+// iconos para las tarjetas
+import TimelineIcon from '@mui/icons-material/Timeline';
+import PaymentsOutlinedIcon from '@mui/icons-material/PaymentsOutlined';
+import HistoryOutlinedIcon from '@mui/icons-material/HistoryOutlined';
+import DoneAllOutlinedIcon from '@mui/icons-material/DoneAllOutlined';
+
+// Faker NEED TO UNINSTALL DEPENDENCY AFTER DEVELOPMENT
+import { faker } from '@faker-js/faker';
+
 
 const Dashboard = () => (
   <>
@@ -39,7 +49,14 @@ const Dashboard = () => (
             xl={3}
             xs={12}
           >
-            <Budget />
+            
+            <KpiCard 
+            title={'CTR (todos)'}
+            value={faker.datatype.number({max: 4, precision: 0.01}).toString() + '%'}
+            unit={'Por impresiones'}
+            icon={<DoneAllOutlinedIcon fontSize='large' />}
+             />
+
           </Grid>
           {/**AQUI IBA TOTAL CUSTOMERS 
           
@@ -61,7 +78,14 @@ const Dashboard = () => (
             sm={6}
             xs={12}
           >
-            <TasksProgress />
+            
+            <KpiCard 
+            title={'Frecuencia'}
+            value={faker.datatype.number({max: 4, precision: 0.01})}
+            unit={'Por persona'}
+            icon={<HistoryOutlinedIcon fontSize='large' />}
+             />
+
           </Grid>
           <Grid
             item
@@ -70,8 +94,14 @@ const Dashboard = () => (
             sm={6}
             xs={12}
           >
-            <TotalProfit sx={{ height: '100%' }} />
+            <KpiCard 
+            title={'Importe gastado'}
+            value={'$' + faker.datatype.number({max: 1000, precision: 0.01, min:200}).toString()}
+            unit={'MXN'}
+            icon={<PaymentsOutlinedIcon fontSize='large' />}
+             />
           </Grid>
+          
 
           <Grid
             item
@@ -80,7 +110,12 @@ const Dashboard = () => (
             sm={6}
             xs={12}
           >
-            <MainKPI />
+            <KpiCard 
+            title={'Alcance'}
+            value={faker.datatype.number({max: 50000, min:200}).toLocaleString('en-US')}
+            unit={'Personas'}
+            icon={<TimelineIcon fontSize='large' />}
+             />
           </Grid>
 
           <Grid
