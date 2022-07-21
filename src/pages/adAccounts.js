@@ -3,7 +3,7 @@
 import React from 'react'
 
 import { Box, Stack } from '@mui/material'
-import { AdAccountCard } from '../components/adAccount-card'
+import { AdAccountActionCard } from '../components/adAccountCard/action-account-card'
 import { DashboardLayout } from '../components/dashboard-layout';
 
 
@@ -21,27 +21,27 @@ const ListAdaccounts = () => (
     <Box sx={{ px: 2, pr: 4, mt: 6, display: 'flex', justifyContent: 'center' }}>
       <Stack gap={4}
         sx={{ width: '60%' }}>
-        <AdAccountCard
+        <AdAccountActionCard
           name={faker.company.companyName()}
           id={faker.random.alphaNumeric(12).toUpperCase()}
         />
-        <AdAccountCard
+        <AdAccountActionCard
           name={faker.company.companyName()}
           id={faker.random.alphaNumeric(12).toUpperCase()}
         />
-        <AdAccountCard
+        <AdAccountActionCard
           name={faker.company.companyName()}
           id={faker.random.alphaNumeric(12).toUpperCase()}
         />
-        <AdAccountCard
+        <AdAccountActionCard
           name={faker.company.companyName()}
           id={faker.random.alphaNumeric(12).toUpperCase()}
         />
-        <AdAccountCard
+        <AdAccountActionCard
           name={faker.company.companyName()}
           id={faker.random.alphaNumeric(12).toUpperCase()}
         />
-        <AdAccountCard
+        <AdAccountActionCard
           name={faker.company.companyName()}
           id={faker.random.alphaNumeric(12).toUpperCase()}
         />
