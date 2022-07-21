@@ -2,9 +2,9 @@
 
 import React from 'react'
 
-import { Box, Stack } from '@mui/material'
 import { AdAccountActionCard } from '../components/adAccountCard/action-account-card'
 import { DashboardLayout } from '../components/dashboard-layout';
+import { AdAccountListLayout } from 'src/components/adAccount-list-layout';
 
 
 //FAKER
@@ -17,38 +17,33 @@ import { faker } from '@faker-js/faker'
  */
 const ListAdaccounts = () => (
   <>
-  
-    <Box sx={{ px: 2, pr: 4, mt: 6, display: 'flex', justifyContent: 'center' }}>
-      <Stack gap={4}
-        sx={{ width: '60%' }}>
-        <AdAccountActionCard
-          name={faker.company.companyName()}
-          id={faker.random.alphaNumeric(12).toUpperCase()}
-        />
-        <AdAccountActionCard
-          name={faker.company.companyName()}
-          id={faker.random.alphaNumeric(12).toUpperCase()}
-        />
-        <AdAccountActionCard
-          name={faker.company.companyName()}
-          id={faker.random.alphaNumeric(12).toUpperCase()}
-        />
-        <AdAccountActionCard
-          name={faker.company.companyName()}
-          id={faker.random.alphaNumeric(12).toUpperCase()}
-        />
-        <AdAccountActionCard
-          name={faker.company.companyName()}
-          id={faker.random.alphaNumeric(12).toUpperCase()}
-        />
-        <AdAccountActionCard
-          name={faker.company.companyName()}
-          id={faker.random.alphaNumeric(12).toUpperCase()}
-        />
-      </Stack>
 
-
-    </Box>
+    <AdAccountListLayout>
+      <AdAccountActionCard
+        name={faker.company.companyName()}
+        id={faker.random.alphaNumeric(12).toUpperCase()}
+      />
+      <AdAccountActionCard
+        name={faker.company.companyName()}
+        id={faker.random.alphaNumeric(12).toUpperCase()}
+      />
+      <AdAccountActionCard
+        name={faker.company.companyName()}
+        id={faker.random.alphaNumeric(12).toUpperCase()}
+      />
+      <AdAccountActionCard
+        name={faker.company.companyName()}
+        id={faker.random.alphaNumeric(12).toUpperCase()}
+      />
+      <AdAccountActionCard
+        name={faker.company.companyName()}
+        id={faker.random.alphaNumeric(12).toUpperCase()}
+      />
+      <AdAccountActionCard
+        name={faker.company.companyName()}
+        id={faker.random.alphaNumeric(12).toUpperCase()}
+      />
+    </AdAccountListLayout>
   </>
 );
 
