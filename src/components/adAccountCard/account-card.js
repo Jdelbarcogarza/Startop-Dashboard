@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { Box, Button, Card, CardContent, Typography } from '@mui/material'
 import DoneOutlinedIcon from '@mui/icons-material/DoneOutlined';
+import PropTypes from 'prop-types'
 
 
 export const AccountCard = ({ name, id, children }) => {
@@ -59,4 +60,11 @@ export const ConnectButton = () => {
             {isAccountConnected ? "Conectada" : "Conectar"}
         </Button>
     )
+}
+
+
+AccountCard.propTypes = {
+    name: PropTypes.string.isRequired,
+    id: PropTypes.string.isRequired,
+    children: PropTypes.node.isRequired
 }
