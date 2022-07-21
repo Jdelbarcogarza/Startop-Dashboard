@@ -13,15 +13,15 @@ const connectAdAccounts = () => {
         <Stack gap={4}
           sx={{ width: '60%' }}>
 
-          <ConnectAdAccountCard name={faker.company.name()}
+          <ConnectAdAccountCard name={faker.company.companyName()}
             id={faker.random.alphaNumeric(12).toUpperCase()}
           />
 
-          <ConnectAdAccountCard name={faker.company.name()}
+          <ConnectAdAccountCard name={faker.company.companyName()}
             id={faker.random.alphaNumeric(12).toUpperCase()}
           />
 
-          <ConnectAdAccountCard name={faker.company.name()}
+          <ConnectAdAccountCard name={faker.company.companyName()}
             id={faker.random.alphaNumeric(12).toUpperCase()}
           />
 
