@@ -135,7 +135,7 @@ const Login = () => {
                     cursor: 'pointer'
                   }}
                 >
-                  Registrarme
+                  Regístrate
                 </Link>
               </NextLink>
             </Typography>
