@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { Box, Button, Card, CardContent, Typography } from '@mui/material'
 import DoneOutlinedIcon from '@mui/icons-material/DoneOutlined';
-import ClearOutlinedIcon from '@mui/icons-material/ClearOutlined';
+
 
 export const AccountCard = ({ name, id, children }) => {
     return (
@@ -18,14 +18,32 @@ export const AccountCard = ({ name, id, children }) => {
                         ID: {id}
                     </Typography>
                 </Box>
-
                 {children}
-
             </CardContent>
         </Card>
     )
 }
 
+/**
+ * Componente que tiene dos botones los cuales al hacer click realizan una acción.
+ * BOTÓN 1) La primera es acceder al dashboard para esa cuenta de anuncios
+ * BOTÓN 2) [PENDIENTE]
+ * 
+ */
+export const ActionButtons = () => {
+    return (
+        <Box sx={{ display: 'flex' }}>
+            <Button sx={{ mr: 4 }}
+                variant="outlined">Configuracion</Button>
+            <Button variant="contained">Ver reporte</Button>
+        </Box>
+    )
+}
+
+/** 
+ * Uno de los dos componentes hijos de la ad account card. Este boton se
+ * utilza para conectar o desconectar la ad account en un inicio de algun usuario.
+ */
 export const ConnectButton = () => {
 
     const [isAccountConnected, setIsAccountConnected] = useState(false)
@@ -35,19 +53,10 @@ export const ConnectButton = () => {
             color="primary"
             startIcon={isAccountConnected && <DoneOutlinedIcon />}
             onClick={() => setIsAccountConnected(!isAccountConnected)}
+            size="large"
             sx={{ width: '25%' }}
         >
             {isAccountConnected ? "Conectada" : "Conectar"}
         </Button>
-    )
-}
-
-export const ActionButtons = () => {
-    return (
-        <Box sx={{ display: 'flex' }}>
-            <Button sx={{ mr: 4 }}
-                variant="outlined">Configuracion</Button>
-            <Button variant="contained">Ver reporte</Button>
-        </Box>
     )
 }
