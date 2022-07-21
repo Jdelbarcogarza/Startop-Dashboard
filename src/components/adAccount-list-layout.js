@@ -2,7 +2,7 @@
 
 import React from 'react'
 import { Box, Stack } from '@mui/material'
-
+import PropTypes from 'prop-types'
 
 export const AdAccountListLayout = ({ children }) => {
     return (
@@ -15,4 +15,8 @@ export const AdAccountListLayout = ({ children }) => {
         </Box>
 
     )
+}
+
+AdAccountListLayout.propTypes = {
+    children: PropTypes.node.isRequired,
 }
