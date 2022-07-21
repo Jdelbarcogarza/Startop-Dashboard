@@ -34,9 +34,14 @@ export const AccountCard = ({ name, id, children }) => {
 export const ActionButtons = () => {
     return (
         <Box sx={{ display: 'flex' }}>
-            <Button sx={{ mr: 4 }}
-                variant="outlined">Configuracion</Button>
-            <Button variant="contained">Ver reporte</Button>
+            <Button sx={{ mr: 4, width: '50%' }}
+                variant="outlined"
+                >
+                Configuracion
+                </Button>
+            <Button variant="contained"
+            sx={{width: '50%'}}
+            >Ver reporte</Button>
         </Box>
     )
 }
