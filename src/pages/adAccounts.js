@@ -2,7 +2,7 @@
 
 import React from 'react'
 
-import { Box, Stack, Typography } from '@mui/material'
+import { Box, Stack } from '@mui/material'
 import { AdAccountCard } from '../components/adAccount-card'
 import { DashboardLayout } from '../components/dashboard-layout';
 
