@@ -6,12 +6,23 @@ import { AdAccountListLayout } from 'src/components/adAccount-list-layout';
 
 
 import { faker } from '@faker-js/faker'
+import { Box, Typography } from '@mui/material'
+
 
 const connectAdAccounts = () => {
   return (
     <>
 
       <AdAccountListLayout>
+
+        <ConnectAdAccountCard name={faker.company.companyName()}
+          id={faker.random.alphaNumeric(12).toUpperCase()}
+        />
+
+        <ConnectAdAccountCard name={faker.company.companyName()}
+          id={faker.random.alphaNumeric(12).toUpperCase()}
+        />
+
         <ConnectAdAccountCard name={faker.company.companyName()}
           id={faker.random.alphaNumeric(12).toUpperCase()}
         />
@@ -23,7 +34,6 @@ const connectAdAccounts = () => {
         <ConnectAdAccountCard name={faker.company.companyName()}
           id={faker.random.alphaNumeric(12).toUpperCase()}
         />
-
       </AdAccountListLayout>
     </>
   )
