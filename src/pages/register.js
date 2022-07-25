@@ -29,30 +29,36 @@ const Register = () => {
       email: Yup
         .string()
         .email(
-          'Must be a valid email')
+          'Debes ingresar un correo válido')
         .max(255)
         .required(
-          'Email is required'),
+          'Correo electrónico es un campo obligatorio'),
       firstName: Yup
         .string()
         .max(255)
         .required(
-          'First name is required'),
+          'Nombre es un campo obligatorio'),
       lastName: Yup
         .string()
         .max(255)
         .required(
-          'Last name is required'),
+          'Apellido es un campo obligatorio'),
       password: Yup
         .string()
         .max(255)
         .required(
-          'Password is required'),
+          'Contraseña es un campo obligatorio'),
+      companyName: Yup
+        .string()
+        .max(255)
+        .required(
+          'Nombre de empresa es un campo obligatorio'
+        ),
       policy: Yup
         .boolean()
         .oneOf(
           [true],
-          'This field must be checked'
+          'Debes estar de acuerdo los términos y condiciones para continuar'
         )
     }),
     onSubmit: () => {
@@ -94,21 +100,21 @@ const Register = () => {
                 color="textPrimary"
                 variant="h4"
               >
-                Create a new account
+                Crear nueva cuenta
               </Typography>
               <Typography
                 color="textSecondary"
                 gutterBottom
                 variant="body2"
               >
-                Use your email to create a new account
+                Utiliza tu correo electrónico para crear una cuenta
               </Typography>
             </Box>
             <TextField
               error={Boolean(formik.touched.firstName && formik.errors.firstName)}
               fullWidth
               helperText={formik.touched.firstName && formik.errors.firstName}
-              label="First Name"
+              label="Nombre"
               margin="normal"
               name="firstName"
               onBlur={formik.handleBlur}
@@ -120,7 +126,7 @@ const Register = () => {
               error={Boolean(formik.touched.lastName && formik.errors.lastName)}
               fullWidth
               helperText={formik.touched.lastName && formik.errors.lastName}
-              label="Last Name"
+              label="Apellido"
               margin="normal"
               name="lastName"
               onBlur={formik.handleBlur}
@@ -129,10 +135,22 @@ const Register = () => {
               variant="outlined"
             />
             <TextField
+              error={Boolean(formik.touched.companyName && formik.errors.companyName)}
+              fullWidth
+              helperText={formik.touched.companyName && formik.errors.companyName}
+              label="Nombre de empresa"
+              margin="normal"
+              name="companyName"
+              onBlur={formik.handleBlur}
+              onChange={formik.handleChange}
+              value={formik.values.companyName}
+              variant="outlined"
+            />
+            <TextField
               error={Boolean(formik.touched.email && formik.errors.email)}
               fullWidth
               helperText={formik.touched.email && formik.errors.email}
-              label="Email Address"
+              label="Correo electrónico"
               margin="normal"
               name="email"
               onBlur={formik.handleBlur}
@@ -145,7 +163,7 @@ const Register = () => {
               error={Boolean(formik.touched.password && formik.errors.password)}
               fullWidth
               helperText={formik.touched.password && formik.errors.password}
-              label="Password"
+              label="Contraseña"
               margin="normal"
               name="password"
               onBlur={formik.handleBlur}
@@ -170,7 +188,7 @@ const Register = () => {
                 color="textSecondary"
                 variant="body2"
               >
-                I have read the
+                He leído los
                 {' '}
                 <NextLink
                   href="#"
@@ -181,7 +199,7 @@ const Register = () => {
                     underline="always"
                     variant="subtitle2"
                   >
-                    Terms and Conditions
+                    Términos y Condiciones
                   </Link>
                 </NextLink>
               </Typography>
@@ -200,14 +218,14 @@ const Register = () => {
                 type="submit"
                 variant="contained"
               >
-                Sign Up Now
+                Registrarse
               </Button>
             </Box>
             <Typography
               color="textSecondary"
               variant="body2"
             >
-              Have an account?
+              ¿Ya tienes una cuenta?
               {' '}
               <NextLink
                 href="/login"
@@ -217,7 +235,7 @@ const Register = () => {
                   variant="subtitle2"
                   underline="hover"
                 >
-                  Sign In
+                  Entra aquí
                 </Link>
               </NextLink>
             </Typography>
