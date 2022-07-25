@@ -49,6 +49,7 @@ const connectAdAccounts = () => {
 
       {/** Boton que termina de registrar inicialmente las ad accounts en la plataforma */}
       <Button variant="contained"
+        disabled={false}
         endIcon={<ArrowForwardOutlinedIcon />}
         color="primary"
         sx={{ position: 'fixed', right: '5%', bottom: 64 }}>
