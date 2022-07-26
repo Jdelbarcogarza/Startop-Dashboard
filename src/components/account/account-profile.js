@@ -8,15 +8,15 @@ import {
   Divider,
   Typography
 } from '@mui/material';
+import { getInitials } from 'src/utils/get-initials';
 
 const user = {
   avatar: '/static/images/avatars/avatar_6.png',
-  city: 'Los Angeles',
-  country: 'USA',
-  jobTitle: 'Senior Developer',
-  name: 'Katarina Smith',
-  timezone: 'GTM-7'
+  name: 'Sandra Marx',
+  companyName: 'Startop'
 };
+
+console.log(getInitials(user.name))
 
 export const AccountProfile = (props) => (
   <Card {...props}>
@@ -29,13 +29,16 @@ export const AccountProfile = (props) => (
         }}
       >
         <Avatar
-          src={user.avatar}
           sx={{
             height: 64,
             mb: 2,
-            width: 64
+            width: 64,
+            backgroundColor: 'info.light',
+
           }}
-        />
+        >
+          {getInitials(user.name)}
+        </Avatar>
         <Typography
           color="textPrimary"
           gutterBottom
@@ -47,13 +50,7 @@ export const AccountProfile = (props) => (
           color="textSecondary"
           variant="body2"
         >
-          {`${user.city} ${user.country}`}
-        </Typography>
-        <Typography
-          color="textSecondary"
-          variant="body2"
-        >
-          {user.timezone}
+          {`${user.companyName}`}
         </Typography>
       </Box>
     </CardContent>
@@ -63,8 +60,9 @@ export const AccountProfile = (props) => (
         color="primary"
         fullWidth
         variant="text"
+        disabled={true}
       >
-        Upload picture
+        Cambiar foto de perfil
       </Button>
     </CardActions>
   </Card>
