@@ -2,7 +2,6 @@ import { useState } from 'react';
 import { Box, Button, Card, CardContent, CardHeader, Divider, TextField } from '@mui/material';
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
-import { formatRelative } from 'date-fns';
 
 export const SettingsPassword = (props) => {
   const [values, setValues] = useState({
@@ -19,11 +18,17 @@ export const SettingsPassword = (props) => {
     },
     validationSchema: Yup.object({
       currentPassword: Yup
-        .string(),
+        .string()
+        .max(16, "Contraseña muy larga. entre 8 y 16 caracteres")
+        .min(8, "Contraseña muy corta. entre 8 y 16 caracteres"),
       newPassword: Yup
-        .string(),
+        .string()
+        .max(16, "Contraseña muy larga. entre 8 y 16 caracteres")
+        .min(8, "Contraseña muy corta. entre 8 y 16 caracteres"),
       confirmPassword: Yup
-        .string(),
+        .string()
+        .max(16, "Contraseña muy larga. entre 8 y 16 caracteres")
+        .min(8, "Contraseña muy corta. entre 8 y 16 caracteres"),
     }),
     onSubmit: () => {
       alert('Aqui se hace el cambio del password en la DB')
@@ -38,8 +43,7 @@ export const SettingsPassword = (props) => {
   };
 
   return (
-    <form {...props}
-    onSubmit={formik.handleSubmit}>
+    <form {...props}>
       <Card>
         <CardHeader
           subheader="Update password"
@@ -59,6 +63,8 @@ export const SettingsPassword = (props) => {
           />
           <TextField
             fullWidth
+            error={Boolean(formik.errors.newPassword)}
+            helperText={"La contraseña debe contener entre 8 a 16 caracteres"}
             label="Nueva contraseña"
             margin="normal"
             name="newPassword"
@@ -90,7 +96,6 @@ export const SettingsPassword = (props) => {
             color="primary"
             variant="contained"
             type="submit"
-            
           > 
           {/** disabled={formik.isSubmitting} 
             LUEGO HACER QUE SOLO SE PERMITA HACER CAMBIOS DE CONTRASEÑA CADA DOS
