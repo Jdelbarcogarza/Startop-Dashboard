@@ -23,7 +23,7 @@ const Account = () => (
           sx={{ mb: 3 }}
           variant="h4"
         >
-          Detalles de cuenta
+          Cuenta
         </Typography>
         <Grid
           container
