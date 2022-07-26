@@ -45,7 +45,7 @@ const Register = () => {
           'Apellido es un campo obligatorio'),
       password: Yup
         .string()
-        .max(255)
+        .max(16)
         .required(
           'Contraseña es un campo obligatorio'),
       companyName: Yup
