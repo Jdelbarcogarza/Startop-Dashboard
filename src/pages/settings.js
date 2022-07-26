@@ -23,7 +23,7 @@ const Settings = () => (
           sx={{ mb: 3 }}
           variant="h4"
         >
-          Settings
+          Ajustes
         </Typography>
         <SettingsNotifications />
         <Box sx={{ pt: 3 }}>
