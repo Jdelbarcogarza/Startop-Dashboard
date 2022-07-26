@@ -2,7 +2,7 @@ import { useEffect, useState, useRef } from 'react';
 import NextLink from 'next/link';
 import { useRouter } from 'next/router';
 import PropTypes from 'prop-types';
-import { Box, Divider, Drawer, Typography, useMediaQuery, Paper } from '@mui/material';
+import { Box, Divider, Drawer, Typography, useMediaQuery, Avatar } from '@mui/material';
 import { ChartBar as ChartBarIcon } from '../icons/chart-bar';
 import { Cog as CogIcon } from '../icons/cog';
 import { Lock as LockIcon } from '../icons/lock';
@@ -18,6 +18,7 @@ import { NavItem } from './nav-item';
 import CampaignIcon from '@mui/icons-material/Campaign';
 import BarChartIcon from '@mui/icons-material/BarChart';
 import { AccountMenu } from './sidebar-account-menu';
+import { getInitials } from 'src/utils/get-initials';
 
 // apartados de navegación del sidebar
 const items = [
@@ -183,12 +184,17 @@ export const DashboardSidebar = (props) => {
             onClick={() => { isAccountMenuOpen == false ? setIsAccountMenuOpen(!isAccountMenuOpen) : null}}
           >
 
-            <Paper
-              variant='rounded'
+            <Avatar
               sx={{
                 width: '42px',
                 height: '42px',
-              }}></Paper>
+                backgroundColor: 'info.main'
+              }}>
+                <Typography variant="body1"
+          color="neutral">
+            {getInitials('Sandra Marx')}
+          </Typography>
+              </Avatar>
 
             <Box>
               <Typography
