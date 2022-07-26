@@ -33,11 +33,14 @@ export const AccountProfile = (props) => (
             height: 64,
             mb: 2,
             width: 64,
-            backgroundColor: 'info.light',
+            backgroundColor: 'info.main',
 
           }}
         >
-          {getInitials(user.name)}
+        <Typography variant="h6"
+          color="neutral">
+            {getInitials(user.name)}
+          </Typography>
         </Avatar>
         <Typography
           color="textPrimary"
@@ -48,7 +51,7 @@ export const AccountProfile = (props) => (
         </Typography>
         <Typography
           color="textSecondary"
-          variant="body2"
+          variant="body1"
         >
           {`${user.companyName}`}
         </Typography>
