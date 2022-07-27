@@ -17,7 +17,13 @@ export const SettingsPassword = (props) => {
       newPassword: Yup
         .string().required('Obligatorio'),
       confirmPassword: Yup
-        .string().required('Obligatorio'),
+        .string().required('Obligatorio').when("newPassword", {
+          is: val => (val && val.length > 0 ? true : false),
+          then: Yup.string().oneOf(
+            [Yup.ref("newPassword")],
+            "Both password need to be the same"
+          )
+        })
     }),
     onSubmit: () => {
       alert('Aqui se hace el cambio del password en la DB')
@@ -35,6 +41,8 @@ export const SettingsPassword = (props) => {
         <CardContent>
         <TextField
             fullWidth
+            error={Boolean(formik.touched.currentPassword && formik.errors.currentPassword)}
+            helperText={formik.touched.currentPassword && formik.errors.currentPassword}
             label="Contraseña actual"
             margin="normal"
             name="currentPassword"
@@ -46,7 +54,7 @@ export const SettingsPassword = (props) => {
           />
           <TextField
             fullWidth
-            error={Boolean( formik.touched.newPassword && formik.errors.newPassword )}
+            error={Boolean(formik.touched.newPassword && formik.errors.newPassword)}
             helperText={formik.touched.newPassword && formik.errors.newPassword}
             label="Nueva contraseña"
             margin="normal"
