@@ -1,14 +1,9 @@
 import { useState } from 'react';
 import { Box, Button, Card, CardContent, CardHeader, Divider, TextField } from '@mui/material';
-import { useFormik } from 'formik';
+import { FormikProvider, useFormik } from 'formik';
 import * as Yup from 'yup';
 
 export const SettingsPassword = (props) => {
-  const [values, setValues] = useState({
-    currentPassword2: '',
-    password: '',
-    confirm: ''
-  });
 
   const formik = useFormik({
     initialValues: {
@@ -18,36 +13,23 @@ export const SettingsPassword = (props) => {
     },
     validationSchema: Yup.object({
       currentPassword: Yup
-        .string()
-        .max(16, "Contraseña muy larga. entre 8 y 16 caracteres")
-        .min(8, "Contraseña muy corta. entre 8 y 16 caracteres"),
+        .string().required('Obligatorio'),
       newPassword: Yup
-        .string()
-        .max(16, "Contraseña muy larga. entre 8 y 16 caracteres")
-        .min(8, "Contraseña muy corta. entre 8 y 16 caracteres"),
+        .string().required('Obligatorio'),
       confirmPassword: Yup
-        .string()
-        .max(16, "Contraseña muy larga. entre 8 y 16 caracteres")
-        .min(8, "Contraseña muy corta. entre 8 y 16 caracteres"),
+        .string().required('Obligatorio'),
     }),
     onSubmit: () => {
       alert('Aqui se hace el cambio del password en la DB')
     }
   })
 
-  const handleChange = (event) => {
-    setValues({
-      ...values,
-      [event.target.name]: event.target.value
-    });
-  };
-
   return (
-    <form {...props}>
+    <form onSubmit={formik.handleSubmit}>
       <Card>
         <CardHeader
-          subheader="Update password"
-          title="Password"
+          subheader="Cambiar contraseña" // esto de aqui se cambio
+          title="Seguridad"
         />
         <Divider />
         <CardContent>
@@ -57,28 +39,33 @@ export const SettingsPassword = (props) => {
             margin="normal"
             name="currentPassword"
             onChange={formik.handleChange}
+            onBlur={formik.handleBlur}
             type="password"
             value={formik.values.currentPassword}
             variant="outlined"
           />
           <TextField
             fullWidth
-            error={Boolean(formik.errors.newPassword)}
-            helperText={"La contraseña debe contener entre 8 a 16 caracteres"}
+            error={Boolean( formik.touched.newPassword && formik.errors.newPassword )}
+            helperText={formik.touched.newPassword && formik.errors.newPassword}
             label="Nueva contraseña"
             margin="normal"
             name="newPassword"
             onChange={formik.handleChange}
+            onBlur={formik.handleBlur}
             type="password"
             value={formik.values.newPassword}
             variant="outlined"
           />
           <TextField
             fullWidth
+            error={Boolean(formik.touched.confirmPassword && formik.errors.confirmPassword)}
+            helperText={formik.touched.confirmPassword && formik.errors.confirmPassword}
             label="Reescribir nueva contraseña"
             margin="normal"
             name="confirmPassword"
             onChange={formik.handleChange}
+            onBlur={formik.handleBlur}
             type="password"
             value={formik.values.confirmPassword}
             variant="outlined"
