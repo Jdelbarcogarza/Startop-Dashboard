@@ -44,6 +44,9 @@ const Account = () => (
             xs={12}
           >
             <AccountProfileDetails />
+
+            
+
           </Grid>
         </Grid>
       </Container>
