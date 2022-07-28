@@ -50,7 +50,7 @@ export const AccountProfileDetails = (props) => {
             >
               <TextField
                 fullWidth
-                helperText="Escriba su nombre"
+                helperText={''}
                 label="Nombre"
                 name="firstName"
                 onChange={handleChange}
