@@ -36,8 +36,6 @@ const items = [
   },
 ];
 
-
-
 export const DashboardSidebar = (props) => {
   const { open, onClose } = props;
   const router = useRouter();
