@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { Box, Button, Card, CardContent, Typography } from '@mui/material'
 import DoneOutlinedIcon from '@mui/icons-material/DoneOutlined';
 import PropTypes from 'prop-types'
-
+import NextLink from 'next/link'
 
 export const AccountCard = ({ name, id, children }) => {
     return (
@@ -36,12 +36,16 @@ export const ActionButtons = () => {
         <Box sx={{ display: 'flex' }}>
             <Button sx={{ mr: 4, width: '50%' }}
                 variant="outlined"
-                >
+            >
                 Configuracion
-                </Button>
-            <Button variant="contained"
-            sx={{width: '50%'}}
-            >Ver reporte</Button>
+            </Button>
+            {/** EL HREF TERMINARÁ SIENDO DINAMICO. PQ CADA PAGINA DE DASBHBOARD CAMBIA */}
+            <NextLink href={'/dashboard'}
+            passHref>
+                <Button variant="contained"
+                    sx={{ width: '50%' }}
+                >Ver reporte</Button>
+            </NextLink>
         </Box>
     )
 }
