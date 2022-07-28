@@ -1,5 +1,7 @@
+
+import NextLink from 'next/link'
 import {
-  Paper, Box, Typography, Divider, Stack, Item
+  Paper, Box, Typography, Divider, Stack, Link, Button
 } from '@mui/material';
 
 
@@ -13,15 +15,18 @@ import PersonOutlineIcon from '@mui/icons-material/PersonOutline';
 const optionsWithIcon = [
   {
     icon: <PaymentOutlinedIcon />,
-    title: 'Pagos'
+    title: 'Pagos',
+    route: '#'
   },
   {
     icon: <PersonOutlineIcon />,
-    title: 'Cuenta'
+    title: 'Cuenta',
+    route: '/account'
   },
   {
     icon: <SettingsOutlinedIcon />,
-    title: 'Ajustes'
+    title: 'Ajustes',
+    route: '/settings'
   },
 ]
 
@@ -37,7 +42,7 @@ const optionsNoIcon = [
 
 
 const MenuDivider = () => (
-  <Divider sx={{mx: 2, my:1, borderColor: 'divider'}} />
+  <Divider sx={{ mx: 2, my: 1, borderColor: 'divider' }} />
 
 );
 
@@ -49,70 +54,75 @@ export const AccountMenu = () => {
         spacing={0}
       >
 
-        
-          {optionsWithIcon.map((item) => (
-            <Box key={item.title}
-              sx={{
-                display: 'flex',
-                paddingY: 1,
-                paddingX: 2,
-                '&:hover': {
-                  backgroundColor: 'primary.main'
-                }
-              }}>
-              {item.icon}
-              <Typography variant="body2"
+
+        {optionsWithIcon.map((item) => (
+          <Box key={item.title}
+            sx={{
+              display: 'flex',
+              paddingY: 1,
+              paddingX: 2,
+              '&:hover': {
+                backgroundColor: 'primary.main'
+              }
+            }}>
+            {item.icon}
+            <NextLink
+              href={item.route}
+              passHref
+            >
+              <Link variant="body2"
                 color="text.primary"
                 sx={{ ml: 1 }}
               >
                 {item.title}
-              </Typography>
-            </Box>
-          )
+              </Link>
+            </NextLink>
+          </Box>
+        )
 
-          )}
+        )}
 
-              <MenuDivider />
+        <MenuDivider />
 
-              {optionsNoIcon.map((item) => (
-            <Box key={item.title}
-              sx={{
-                display: 'flex',
-                paddingY: 1,
-                paddingX: 1,
-                '&:hover': {
-                  backgroundColor: 'primary.main'
-                }
-              }}>
-              <Typography variant="body2"
-                color="text.primary"
-                sx={{ ml: 1 }}
-              >
-                {item.title}
-              </Typography>
-            </Box>
-          )
-              )}
+        {optionsNoIcon.map((item) => (
+          <Box key={item.title}
+            sx={{
+              display: 'flex',
+              paddingY: 1,
+              paddingX: 1,
+              '&:hover': {
+                backgroundColor: 'primary.main'
+              }
+            }}>
+            <Typography variant="body2"
+              color="text.primary"
+              sx={{ ml: 1 }}
+            >
+              {item.title}
+            </Typography>
+          </Box>
+        )
+        )}
 
-              <MenuDivider />
+        <MenuDivider />
 
 
-              <Box
-              sx={{
-                display: 'flex',
-                paddingY: 1,
-                paddingX: 1,
-                '&:hover': {
-                  backgroundColor: 'primary.main'
-                }
-              }}>
-              <Typography variant="body2"
-                color="text.primary"
-                sx={{ ml: 1 }}
-              >
-                Salir
-              </Typography>
-            </Box>
+        <Box
+          sx={{
+            display: 'flex',
+            paddingY: 1,
+            paddingX: 1,
+            '&:hover': {
+              backgroundColor: 'primary.main'
+            }
+          }}>
+          <Typography variant="body2"
+            color="text.primary"
+            sx={{ ml: 1 }}
+          >
+            Salir
+          </Typography>
+        </Box>
 
       </Stack>
     </Paper>
