@@ -104,18 +104,6 @@ export const AccountProfileDetails = (props) => {
               />
             </Grid>
 
-            <Grid 
-            item 
-            sm={12}
-            >
-
-            <Button
-            variant="text"
-            color="primary">
-              Cambiar contraseña
-            </Button>
-            </Grid>
-
           </Grid>
         </CardContent>
         <Divider />
