@@ -1,7 +1,8 @@
 import Head from 'next/head';
-import { Box, Container, Grid, Typography } from '@mui/material';
+import { Box, Container, Grid, Typography, Stack } from '@mui/material';
 import { AccountProfile } from '../components/account/account-profile';
 import { AccountProfileDetails } from '../components/account/account-profile-details';
+import { AccountAddAdAccount } from '../components/account/account-add-adAccounts';
 import { DashboardLayout } from '../components/dashboard-layout';
 
 const Account = () => (
@@ -35,7 +36,10 @@ const Account = () => (
             md={6}
             xs={12}
           >
-            <AccountProfile />
+            <Stack spacing={3}>
+              <AccountProfile />
+              <AccountAddAdAccount />
+            </Stack>
           </Grid>
           <Grid
             item
@@ -44,8 +48,6 @@ const Account = () => (
             xs={12}
           >
             <AccountProfileDetails />
-
-            
 
           </Grid>
         </Grid>
