@@ -23,7 +23,7 @@ const Dashboard = () => (
   <>
     <Head>
       <title>
-        Dashboard | Material Kit
+        Home
       </title>
     </Head>
     <Box
@@ -45,99 +45,8 @@ const Dashboard = () => (
             xl={3}
             xs={12}
           >
-            
-            <KpiCard 
-            title={'CTR (todos)'}
-            value={faker.datatype.number({max: 4, precision: 0.01}).toString() + '%'}
-            unit={'Por impresiones'}
-            icon={<DoneAllOutlinedIcon fontSize='large' />}
-             />
-
-          </Grid>
-          
-          <Grid
-            item
-            xl={3}
-            lg={3}
-            sm={6}
-            xs={12}
-          >
-            
-            <KpiCard 
-            title={'Frecuencia'}
-            value={faker.datatype.number({max: 4, precision: 0.01})}
-            unit={'Por persona'}
-            icon={<HistoryOutlinedIcon fontSize='large' />}
-             />
-
-          </Grid>
-          <Grid
-            item
-            xl={3}
-            lg={3}
-            sm={6}
-            xs={12}
-          >
-            <KpiCard 
-            title={'Importe gastado'}
-            value={'$' + faker.datatype.number({max: 1000, precision: 0.01, min:200}).toString()}
-            unit={'MXN'}
-            icon={<PaymentsOutlinedIcon fontSize='large' />}
-             />
-          </Grid>
-          
-
-          <Grid
-            item
-            xl={3}
-            lg={3}
-            sm={6}
-            xs={12}
-          >
-            <KpiCard 
-            title={'Alcance'}
-            value={faker.datatype.number({max: 50000, min:200}).toLocaleString('en-US')}
-            unit={'Personas'}
-            icon={<TimelineIcon fontSize='large' />}
-             />
-          </Grid>
-
-          <Grid
-            item
-            lg={8}
-            md={12}
-            xl={9}
-            xs={12}
-          >
-            <Sales />
-          </Grid>
-          <Grid
-            item
-            lg={4}
-            md={6}
-            xl={3}
-            xs={12}
-          >
-            <TrafficByDevice sx={{ height: '100%' }} />
-          </Grid>
-          <Grid
-            item
-            lg={4}
-            md={6}
-            xl={3}
-            xs={12}
-          >
-            <LatestProducts sx={{ height: '100%' }} />
-          </Grid>
-          <Grid
-            item
-            lg={8}
-            md={12}
-            xl={9}
-            xs={12}
-          >
-            <LatestOrders />
-          </Grid>
+            ESTA VA A SER LA SECCION DE HOME DE LA PLATAFORMA
+            </Grid>
         </Grid>
       </Container>
     </Box>
